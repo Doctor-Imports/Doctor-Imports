@@ -626,12 +626,11 @@ nav ul li a:hover {
 footer {
     background-color: #090a0d;
     color: #646873;
-    padding: 40px 20px;
+    padding: 30px 20px 55px 20px; /* Padding reduzido para deixar o rodapé mais fino */
     text-align: center;
     font-size: 13px;
     border-top: 1px solid rgba(212, 175, 55, 0.1);
     letter-spacing: 1px;
-    margin-bottom: 80px; /* Espaço para botões flutuantes em telas mobile */
 }
 
 footer p {
@@ -1383,4 +1382,39 @@ footer a {
 
 #adminSecretBtn:hover {
     color: #2a2d35 !important;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 12px 5%;
+        gap: 12px;
+    }
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav a {
+        font-size: 12px;
+    }
+    .logo-img {
+        height: 45px;
+    }
+}
+
+/* Scrollbar Global */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #090a0d;
+}
+::-webkit-scrollbar-thumb {
+    background: #232630;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #c5a059;
 }
