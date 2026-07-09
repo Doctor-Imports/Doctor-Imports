@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Imports | Catálogo Premium</title>
+    <!-- Favicon e Ícones -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Estilo Principal Externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Doctor Imports Logo" class="logo-img">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#subsecaoImportados">Perfumes</a></li>
+                <li><a href="#subsecaoIphonesNovos">Celulares</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner Principal (Hero) -->
+    <section class="hero">
+        <h2>Catálogo Exclusivo</h2>
+        <p>Tecnologia que te conecta, fragrâncias que te definem.</p>
+    </section>
+
+    <!-- Barra de Pesquisa Integrada -->
+    <div class="search-container">
+        <div class="search-input-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="inputBusca" placeholder="Buscar perfume ou iPhone...">
+        </div>
+    </div>
+
+    <!-- Filtros e Ordenação Avançados -->
+    <div class="filters-wrapper">
+        <div class="filters-group">
+            <span class="filter-label">Filtros de Gênero:</span>
+            <!-- Custom Tabs para Gêneros de Perfumes -->
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-genero="todos">Todos</button>
+                <button class="filter-tab" data-genero="masculino">Masculino</button>
+                <button class="filter-tab" data-genero="feminino">Feminino</button>
+                <button class="filter-tab" data-genero="unissex">Unissex</button>
+            </div>
+        </div>
+        
+        <div class="filters-group">
+            <span class="filter-label">Ordenar:</span>
+            <div class="custom-select-wrapper" id="customSelectWrapper">
+                <div class="custom-select-trigger">
+                    <span>Ordenação Padrão</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="custom-options">
+                    <span class="custom-option selected" data-value="padrao">Ordenação Padrão</span>
+                    <span class="custom-option" data-value="maior">Maior Preço</span>
+                    <span class="custom-option" data-value="menor">Menor Preço</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grid de Feedback para Sem Resultados -->
+    <div id="msgSemResultados" style="text-align: center; color: #8c91a0; font-size: 16px; margin: 60px 0; display: none; letter-spacing: 1px;">
+        <i class="fa-solid fa-box-open" style="display:block; font-size:40px; margin-bottom:15px; color:#c5a059;"></i>
+        Nenhum produto encontrado com essa grafia.
+    </div>
+
+    <!-- Diferenciais -->
+    <div class="diferenciais-container">
+        <div class="diferenciais">
+            <div class="item-diferencial">
+                <i class="fa-regular fa-gem"></i>
+                PRODUTOS TESTADOS
+            </div>
+            <div class="item-diferencial">
+                <i class="fa-solid fa-check-double" style="font-size: 14px;"></i>
+                GARANTIA DE QUALIDADE
+            </div>
+            <div class="item-diferencial">
+                <i class="fa-solid fa-cube"></i>
+                ENVIO SEGURO
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <!-- Banner de Encomenda -->
+        <div style="background: linear-gradient(135deg, #121318 0%, #090a0d 100%); border: 1px solid rgba(197, 160, 89, 0.2); border-radius: 4px; padding: 15px 20px; margin-bottom: 40px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            <p style="color: #e2e4e9; font-size: 14px; letter-spacing: 1px; font-weight: 300; text-transform: uppercase; margin: 0; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px;">
+                <i class="fa-regular fa-paper-plane" style="color: #c5a059; font-size: 16px;"></i>
+                Não encontrou o perfume ou iPhone que procurava? 
+                <a href="#" id="btnEncomendar" style="color: #c5a059; text-decoration: none; font-weight: 500; margin-left: 5px;">
+                    Fale conosco no Direct para encomendar <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i>
+                </a>
+            </p>
+        </div>
+
+        <!-- Seção de Perfumaria -->
+        <div class="bloco-grupo-catalogo" id="perfumes">
+            <!-- Subseção: Perfumes Importados -->
+            <div class="subsecao-catalogo" id="subsecaoImportados">
+                <h3 class="section-title">Perfumes Importados</h3>
+                <div class="grid-produtos" id="gridPerfumesImportados">
+                    <!-- Inserido dinamicamente via JS -->
+                </div>
+            </div>
+
+            <!-- Subseção: Perfumes Árabes -->
+            <div class="subsecao-catalogo" id="subsecaoArabes">
+                <h3 class="section-title">Perfumes Árabes</h3>
+                <div class="grid-produtos" id="gridPerfumesArabes">
+                    <!-- Inserido dinamicamente via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de Celulares -->
+        <div class="bloco-grupo-catalogo" id="celulares">
+            <!-- Subseção: iPhones Novos -->
+            <div class="subsecao-catalogo" id="subsecaoIphonesNovos">
+                <h3 class="section-title">iPhones Novos</h3>
+                <div class="grid-produtos" id="gridIphonesNovos">
+                    <!-- Inserido dinamicamente via JS -->
+                </div>
+            </div>
+
+            <!-- Subseção: iPhones Seminovos -->
+            <div class="subsecao-catalogo" id="subsecaoIphonesSeminovos">
+                <h3 class="section-title">iPhones Seminovos</h3>
+                <div class="grid-produtos" id="gridIphonesSeminovos">
+                    <!-- Inserido dinamicamente via JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Detalhes -->
+    <div id="meuModal" class="modal-detalhes">
+        <div class="modal-content">
+            <span class="close-modal" id="fecharModal">&times;</span>
+            <div class="modal-body-flex">
+                <div class="modal-img-col">
+                    <div class="modal-gallery">
+                        <img id="modalImagem" src="" alt="Imagem do Produto">
+                        <div id="modalThumbnails" class="thumbnails-container"></div>
+                    </div>
+                </div>
+                <div class="modal-info-col">
+                    <h4 id="modalNome" class="modal-title">Nome do Produto</h4>
+                    <p id="modalTexto" class="modal-description">Descrição detalhada aqui...</p>
+                    <span id="modalPreco" class="modal-price">R$ 0,00</span>
+                    <button id="btnConsultarDirect" class="btn-direct-modal">
+                        <i class="fa-brands fa-instagram"></i> Consultar no Direct
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sacola de Compras Flutuante (Drawer) -->
+    <div class="cart-backdrop" id="cartBackdrop"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-bag-shopping"></i> Sua Sacola</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItemsContainer">
+            <!-- Inserido dinamicamente via JS -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span class="cart-total-label">Total:</span>
+                <span class="cart-total-value" id="cartTotalValue">R$ 0,00</span>
+            </div>
+            <button class="cart-checkout-btn" id="btnCheckoutCart">
+                <i class="fa-brands fa-instagram"></i> Enviar Pedido ao Direct
+            </button>
+        </div>
+    </div>
+
+    <!-- Botões Flutuantes -->
+    <div class="cart-float-btn" id="cartFloatBtn">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span>Sacola</span>
+        <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+    </div>
+
+    <a href="https://www.instagram.com/doctor.importss" class="instagram-float" target="_blank">
+        <i class="fa-brands fa-instagram"></i> Ver Instagram
+    </a>
+
+    <!-- Rodapé -->
+    <footer id="contato">
+        <p>&copy; 2026 Doctor Imports - Todos os direitos reservados.</p>
+        <p>Gostou de algum produto? Entre em contato pelo direct: <a href="https://www.instagram.com/doctor.importss" target="_blank">@doctor.importss</a></p>
+        <p style="margin-top: 20px;">
+            <span id="adminSecretBtn" style="cursor: pointer; color: #1e1f24; font-size: 14px; transition: color 0.3s;" title="">
+                <i class="fa-solid fa-crown"></i>
+            </span>
+        </p>
+    </footer>
+
+    <!-- Modal de Login Admin (Secreto) -->
+    <div class="login-modal-overlay" id="loginModal">
+        <div class="login-modal">
+            <button class="login-close" id="loginClose">&times;</button>
+            <div class="login-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3 class="login-title">Acesso Restrito</h3>
+            <p class="login-subtitle">Identifique-se para acessar o painel.</p>
+            <div class="login-field">
+                <label>Usuário</label>
+                <input type="text" id="loginUser" placeholder="admin" autocomplete="off">
+            </div>
+            <div class="login-field">
+                <label>Senha</label>
+                <input type="password" id="loginPass" placeholder="••••••••" autocomplete="off">
+            </div>
+            <p class="login-error" id="loginError"></p>
+            <button class="login-btn" id="loginBtn">
+                <i class="fa-solid fa-right-to-bracket"></i> Entrar
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="toast-container">
+        <i class="fa-solid fa-circle-check" style="color: #c5a059; font-size: 16px;"></i>
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="produtos.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
